@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service
 
 @Service
 class ProductsService {
-    fun getProducts(): List<Product> {
+    fun getProducts(id: Int): List<Product> {
         val list = listOf(
             Product(
                 1,
@@ -250,7 +250,9 @@ class ProductsService {
                 "Bluetooth, Preto e 4500 DPI", 1123.26, 5
             )
         )
-        return list
+        return list.filter { Product ->
+            Product.categoryId == id
+        }
     }
 }
 
