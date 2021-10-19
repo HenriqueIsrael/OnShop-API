@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("/products")
 class ProductsController(private val productsService: ProductsService){
-    @GetMapping()
-    fun getProducts(@RequestBody body: Id):List<Product>{
-        return productsService.getProducts(body.id)
+    @GetMapping("/{id}")
+    fun getProducts(@PathVariable id: Int):List<Product>{
+        return productsService.getProducts(id)
     }
 }
